@@ -47,6 +47,26 @@ yarn start
 - AutoComplate Shell
 - Shell Syntax
 
+### Settings.json
+
+```json
+{
+  "workbench.iconTheme": "vscode-icons",
+  "redhat.telemetry.enabled": true,
+  "explorer.confirmDelete": false,
+  "editor.formatOnSave": true,
+  "editor.codeActionsOnSave": {
+    "source.organizeImports": true,
+    "source.fixAll.eslint": true
+  },
+  "editor.defaultFormatter": "esbenp.prettier-vscode",
+  "editor.tabSize": 2,
+  "editor.insertSpaces": false,
+  "editor.stickyTabStops": true,
+  "eslint.alwaysShowStatus": true
+}
+```
+
 ## Troubleshooting
 
 **yarn start**

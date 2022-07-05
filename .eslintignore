@@ -1,0 +1,10 @@
+**/.yarn/**/*
+package.json
+
+**/node_modules/**/*
+**/tmp/**
+**/temp/**
+public/packs/**/*
+lib/**
+dist/**
+external/**/*

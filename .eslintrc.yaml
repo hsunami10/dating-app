@@ -1,0 +1,199 @@
+# Tutorials:
+# https://www.cloudbees.com/blog/yaml-tutorial-everything-you-need-get-started
+# https://www.w3schools.io/file/yaml-arrays/
+
+extends:
+  - prettier
+  - plugin:promise/recommended
+
+plugins:
+  - import
+  - lodash
+  # - jest
+  - autofix
+  - "@typescript-eslint"
+  - promise
+
+env:
+  node: true
+  # jest/globals: true
+  es2021: true
+
+settings:
+  import/ignore:
+    - node_modules
+  # https://stackoverflow.com/a/58323590
+  import/resolver:
+    node:
+      extensions: ['.js', '.jsx', '.ts', '.tsx']
+      moduleDirectory: ['node_modules', 'src/']
+
+parser: "@typescript-eslint/parser"
+parserOptions:
+  project:
+    - tsconfig.json
+
+# https://eslint.org/docs/user-guide/configuring/configuration-files#how-do-overrides-work
+# overrides:
+#   - files: src/**/*.js
+#     rules:
+#       import/no-commonjs: off
+#   - files:
+#     - src/db/seeds/*.ts
+#     rules:
+#       no-restricted-imports: 0
+
+rules:
+  camelcase: [error, { properties: always, ignoreDestructuring: false }]
+  no-console: error
+  no-empty: error
+  no-constant-condition: error
+  no-redeclare: [error, { builtinGlobals: true }]
+  no-restricted-imports:
+    - error
+    - patterns: # TODO: Create a custom rule.
+      - .*
+
+  # Async / await rules
+  no-return-await: error
+  no-async-promise-executor: error
+  no-await-in-loop: error
+  require-atomic-updates: error
+  require-await: error
+  
+  # We use leading underscores
+  no-underscore-dangle: 0
+  no-use-before-define: 0
+  no-unused-vars:
+    - error
+    - vars: all
+      args: all
+      argsIgnorePattern: ^_
+  prefer-rest-params: error
+
+  # Shadowing isn't a very difficult concept. --dmnd
+  no-shadow: 0
+
+  # We want to be able to write named functional components
+  prefer-arrow-callback:
+    [error, { allowNamedFunctions: true, allowUnboundThis: true }]
+
+  prefer-object-spread: error
+
+  # airbnb uses "allowEmptyReject": true, but unhandled empty promise rejections
+  # cause essentially useless sentry errors. It's more valuable to limit promise rejections
+  # to error handling specifically.
+  prefer-promise-reject-errors: [error, { allowEmptyReject: false }]
+
+  # This isn't very valuable when we have static types, and it gets confused by
+  # invariant.
+  consistent-return: 0
+
+  #####################
+  # IMPORT PLUGIN RULES
+  #####################
+
+  import/default: error
+  import/extensions: [error, ignorePackages, { js: never, jsx: never, ts: never, tsx: never }]
+  import/first: error
+  import/named: error
+  import/no-commonjs: error
+  import/no-dynamic-require: error
+  import/no-extraneous-dependencies: error
+  import/no-import-module-exports: error
+  import/no-mutable-exports: error
+  import/no-relative-packages: error
+  import/no-self-import: error
+  import/no-unassigned-import: error
+  import/no-unresolved: error
+  import/no-unused-modules: error
+  import/no-useless-path-segments: [error, { noUselessIndex: true }]
+  import/no-webpack-loader-syntax: error
+  import/order:
+    [
+      error,
+      {
+        groups:
+          [
+            builtin,
+            external,
+            internal,
+            [parent, sibling, index],
+            object,
+            type,
+            unknown,
+          ],
+        newlines-between: always,
+      },
+    ]
+
+  #####################
+  # LODASH PLUGIN RULES
+  #####################
+
+  lodash/callback-binding: error
+  lodash/no-extra-args: error
+  lodash/unwrap: error
+  lodash/collection-return: error
+  lodash/no-double-unwrap: error
+  lodash/no-unbound-this: error
+  lodash/import-scope:
+    - error
+    - member
+
+  ######################
+  # AUTOFIX PLUGIN RULES
+  ######################
+
+  autofix/array-bracket-newline:
+    - error
+    - multiline: true
+  autofix/arrow-body-style:
+    - error
+    - as-needed
+  autofix/arrow-parens:
+    - error
+    - as-needed
+  # autofix/capitalized-comments:
+  #   - error
+  #   - always
+  #   - ignorePattern: "console"
+  #     ignoreInlineComments: true
+  #     ignoreConsecutiveComments: true
+  autofix/dot-notation:
+    - error
+    - allowKeywords: true
+  autofix/eqeqeq:
+    - error
+    - always
+    - null: never
+  autofix/jsx-quotes:
+    - error
+    - prefer-double
+  autofix/indent:
+    - error
+    - tab
+  autofix/no-var: error
+  autofix/prefer-const: error
+  autofix/spaced-comment:
+    - error
+    - always
+    - exceptions: ["/", "-+", "*", "-", "="]
+      markers:
+        - "::"
+        - "="
+  autofix/no-plusplus: error
+  autofix/valid-typeof:
+    - error
+    - requireStringLiterals: true
+  
+  ######################
+  # PROMISE PLUGIN RULES
+  ######################
+
+  promise/prefer-await-to-callbacks: error
+  promise/prefer-await-to-then: error
+
+  ################################
+  # TODO: Add custom eslint rules.
+  ################################

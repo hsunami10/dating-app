@@ -1,5 +1,6 @@
 **/.yarn/**/*
 package.json
+*config.js
 
 **/node_modules/**/*
 **/tmp/**

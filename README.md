@@ -29,23 +29,25 @@ yarn start
 ## Install VSCode
 
 ### Extensions
-- vscode-icons
-- YAML
-- React Native Tools
-- Prettier - Code formatter
-- Path Intellisense
-- Terminal
-- GraphQL
-- Gitlens - Git supercharged
-- gitignore
-- Better Comments
-- DotENV
-- ESLint
-- ES7+ React/Redux/React-Native snippets
-- Bash IDE
-- shell-format
-- AutoComplate Shell
-- Shell Syntax
+
+- [AutoComplate Shell](https://marketplace.visualstudio.com/items?itemName=truman.autocomplate-shell)
+- [Bash IDE](https://marketplace.visualstudio.com/items?itemName=mads-hartmann.bash-ide-vscode)
+- [Better Comments](https://marketplace.visualstudio.com/items?itemName=aaron-bond.better-comments)
+- [DotENV](https://marketplace.visualstudio.com/items?itemName=mikestead.dotenv)
+- [ES7+ React/Redux/React-Native snippets](https://marketplace.visualstudio.com/items?itemName=dsznajder.es7-react-js-snippets)
+- [ESLint](https://marketplace.visualstudio.com/items?itemName=dbaeumer.vscode-eslint)
+- [gitignore](https://marketplace.visualstudio.com/items?itemName=codezombiech.gitignore)
+- [Gitlens - Git supercharged](https://marketplace.visualstudio.com/items?itemName=eamodio.gitlens)
+- [GraphQL](https://marketplace.visualstudio.com/items?itemName=GraphQL.vscode-graphql)
+- [Path Intellisense](https://marketplace.visualstudio.com/items?itemName=christian-kohler.path-intellisense)
+- [Prettier - Code formatter](https://marketplace.visualstudio.com/items?itemName=esbenp.prettier-vscode)
+- [React Native Tools](https://marketplace.visualstudio.com/items?itemName=msjsdiag.vscode-react-native)
+- [Shell Syntax](https://marketplace.visualstudio.com/items?itemName=bmalehorn.shell-syntax)
+- [shell-format](https://marketplace.visualstudio.com/items?itemName=foxundermoon.shell-format)
+- [Terminal](https://marketplace.visualstudio.com/items?itemName=formulahendry.terminal)
+
+- [vscode-icons](https://marketplace.visualstudio.com/items?itemName=vscode-icons-team.vscode-icons)
+- [YAML](https://marketplace.visualstudio.com/items?itemName=redhat.vscode-yaml)
 
 ### Settings.json
 
@@ -60,6 +62,9 @@ yarn start
     "source.fixAll.eslint": true
   },
   "editor.defaultFormatter": "esbenp.prettier-vscode",
+  "[ignore]": {
+    "editor.defaultFormatter": "foxundermoon.shell-format"
+  },
   "editor.tabSize": 2,
   "editor.insertSpaces": false,
   "editor.stickyTabStops": true,

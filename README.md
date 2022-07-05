@@ -63,7 +63,8 @@ yarn start
   "editor.tabSize": 2,
   "editor.insertSpaces": false,
   "editor.stickyTabStops": true,
-  "eslint.alwaysShowStatus": true
+  "eslint.alwaysShowStatus": true,
+  "editor.detectIndentation": false
 }
 ```
 
